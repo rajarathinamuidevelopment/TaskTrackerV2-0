@@ -1,0 +1,193 @@
+/*
+Task Tracker v2.0 component 
+Created By - Rajarathinam Maduram
+Created On - 08/07/2016
+Details: Task Tracker is a reusable components build with table less and class less layout. Driven from attribute data-task.
+flex box followed to build existing task list component, used with HTML5 semantic elements, all element belong to  box-sizing border-box property. 
+Pseudo element and classes followed. CSS animation button to interactive with user effectively. 
+*/
+/* Reset all elements from browser default */
+html * {
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 14px;
+    color: #000;
+    box-sizing: border-box;
+}
+[data-task] section > div:first-child {
+    width: 100%;
+    padding-right: 0px;
+    border-right: 0px solid #f0f0f0;
+}
+/* Existing Task section content styles*/
+[data-task] section > div:last-child {
+    width: 100%;
+    padding-left: 0px;
+}
+
+[data-task] header {
+    border: #e2e2e2 solid 10px;
+    border-bottom: 0;
+    background-color: #f0f0f0;
+    padding: 20px 15px 30px 15px
+}
+
+[data-task] section {
+    width: 100%;
+    border: #f0f0f0 10px solid;
+    border-top-width: 0;
+    border-bottom-width: 40px;
+    padding: 0px 15px;
+    overflow: hidden;
+}
+/* Styles for mobile device */
+@media only screen and (min-width: 768px){
+    /* Create Task section content styles*/
+    [data-task] section > div:first-child {
+        float: left;
+        width: 50%;
+        padding-right: 35px;
+        border-right: 5px solid #f0f0f0;
+    }
+    /* Existing Task section content styles*/
+    [data-task] section > div:last-child {
+        float: left;
+        width: 50%;
+        padding-left: 35px;
+    }
+    [data-task] header {
+        padding: 40px 30px 50px 30px
+    }
+    [data-task] section {
+        padding: 0px 35px;
+    }
+}
+/* Header component backround color and border according to the design*/
+
+[data-task] h1 {
+    font-size: 34px
+}
+[data-task] h6 {
+    color: #616161;
+    font-size: 18px;
+    font-weight: normal;
+}
+[data-task] ul,[data-task] li {
+    list-style: none;
+}
+
+[data-task] section div {
+    padding-top: 40px;
+}
+
+/* spacing for input elements like Task Name, Date & Assigned to*/
+[data-task] section div:first-child ul li {
+    margin-top: 8px
+}
+/* spacing for title elements like Task Name, Date,  Assigned to & submit button*/
+[data-task] section div:first-child ul li:nth-child(odd) {
+    margin-top: 30px
+}
+/* Existing task list outer border and sapacing */
+[data-task] section div:last-child ul {
+    border: 4px solid #dedede;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+/*set all li element has flex box layout*/
+[data-task] section div:last-child ul li {
+    display: -webkit-flex;
+    display: flex;
+    padding: 1px 15px
+}
+/*alternative color for list row*/
+[data-task] section div:last-child ul li:nth-child(even) {
+    background-color: #ececec
+}
+/* even spacing for inner list elements task name, date & asssigned to*/
+[data-task] section div:last-child ul li div {
+    padding: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+/* remove left spacing for the Task Name element */
+[data-task] section div:last-child ul li div:first-child {
+    padding-left: 0px;
+    
+}
+/* remove right spacing for the Task assigned to element */
+[data-task] section div:last-child ul li div:last-child {
+    padding-right: 0px;
+}
+/* setting style for task date element*/
+[data-task] section div:last-child ul li div:nth-last-child(2) {
+    margin-right: auto;
+    font-size: 12px;
+    font-weight: normal;
+    color: #6f6f6f;
+    line-height: 18px;
+    padding-left: 0px;
+}
+/* Common setting for input style according to UI design*/
+[data-task] input {
+    height: 40px;
+    line-height: 40px;
+    border: #dedede solid 1px;
+    background-color: #ececec;
+    width: 100%;
+    border-radius: 3px;
+    padding-left: 10px;
+    outline: none;
+}
+/* style for validation fails in input elements*/
+[data-task] input.alert {
+    border-color: #ff0000
+}
+/*button style which match the UI design and added animation*/
+[data-task] button {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #e1e1e1;
+    text-decoration: none;
+    color: #fff;
+    border: 0;
+    background-color: #434343;
+    border-radius: 3px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+/*Added right arrow to show intractive to user */
+[data-task] button:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    border-style: solid;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    top: calc(50% - 10px);
+    right: 0;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #434343;
+    outline: none;
+}
+/* Animation for on hover effect*/
+[data-task] button:hover:before {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+}

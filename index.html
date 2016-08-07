@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task Tracker</title>
+	<!-- taskTracker.css all the style element to build UI component in Task Tracker v2.0 component   -->
+	<link rel="stylesheet" type="text/css" href="css\custom\taskTracker.css">
+	<style type="text/css">
+		@media only screen and (min-device-width: 320px){
+
+	}
+	</style>
+</head>
+<body>
+	<!-- Task Tracker v2.0 starts Here data-task attribute maintain the below structure into a reusable component   -->
+	<div data-task>
+		<!-- Header Component starts Here  -->
+		<header>
+			<h1>Task Trcker</h1>
+			<h6>v2.0</h6>
+		</header>
+		<!-- Header Component ends Here  -->
+		<!-- Content part starts Here  -->
+		<section>
+			<!-- Create a Task starts Here  -->
+			<div>
+				<h6>Create a Task</h6>
+				<ul>
+					<li>Task Name</li>
+					<li><input type="text" data-name name="name" placeholder="Task Name"></li>
+					<li>Date</li>					
+					<li>
+						<!-- Date element with data-date attribute to validate date should in the format MM-DD-YYYY -->
+						<input data-date placeholder="MM/DD/YYYY" type="text" name="name">
+					</li>
+					<li>Assigned To</li>
+					<li><input type="text" data-assign name="name" placeholder="Assigne to"></li>
+					<li><button data-submit>Submit</button></li>
+				</ul>
+			</div>
+			<!-- Create a Task ends Here  -->
+			<!-- Existing Tasks starts Here  -->
+			<div>
+				<h6>Existing Tasks</h6>
+				<ul>
+					<!-- JSON data build Here  in form of li and 3 div elemnts (Name, Date and assigned to)-->
+				</ul>
+			</div>
+			<!-- Existing Tasks ends Here  -->
+		</section>
+		<!-- Content part ends Here  -->
+	</div>
+	<!-- Task Trcker v2.0 ends Here  -->
+
+	<!-- Including scripts files into the environment  -->
+	<!-- Task Traker module depend on JQuery libray -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Task Traker contol by javascript file taskTracker.js function like click, keyboard event, custom function to build data, validate data -->
+	<script type="text/javascript" src="script\custom\taskTrcker.js"></script>	
+</body>
+</html>
